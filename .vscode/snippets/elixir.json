@@ -1,0 +1,20 @@
+{
+  "Phoenix Controller": {
+    "prefix": "phxc",
+    "body": [
+      "defmodule ${1:ModuleName}Controller do",
+      "  use ${2:AppName}Web, :controller",
+      "",
+      "  $0",
+      "end"
+    ]
+  },
+  "Phoenix Function": {
+    "prefix": "phxf",
+    "body": [
+      "def ${1:function_name}(conn, ${2:params}) do",
+      "  $0",
+      "end"
+    ]
+  }
+}

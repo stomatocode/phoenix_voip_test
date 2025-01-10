@@ -1,0 +1,30 @@
+{
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.associations": {
+    "*.heex": "phoenix-heex",
+    "*.eex": "eex",
+    "*.leex": "eex"
+  },
+  "emmet.includeLanguages": {
+    "phoenix-heex": "html",
+    "html-eex": "html"
+  },
+  "search.exclude": {
+    "_build/**": true,
+    ".elixir_ls/**": true,
+    "deps/**": true,
+    "priv/static/**": true
+  },
+  "elixirLS.projectDir": ".",
+  "elixirLS.fetchDeps": false,
+  "elixirLS.mixEnv": "dev",
+  "terminal.integrated.env.osx": {
+    "MIX_ENV": "dev"
+  },
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.fontFamily": "MesloLGS NF"
+}
