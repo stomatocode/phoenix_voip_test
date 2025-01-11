@@ -8,16 +8,34 @@ defmodule PhoenixVoipTestWeb.Router do
     plug :put_root_layout, html: {PhoenixVoipTestWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug PhoenixVoipTestWeb.Plugs.Auth
   end
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
+  pipeline :authenticate_user do
+    plug PhoenixVoipTestWeb.Plugs.Auth, :authenticate_user
+  end
+
   scope "/", PhoenixVoipTestWeb do
     pipe_through :browser
 
     get "/", PageController, :home
+
+    get "/register", UserController, :new
+    post "/register", UserController, :create
+
+    get "/login", SessionController, :new
+    post "/login", SessionController, :create
+    delete "/logout", SessionController, :delete
+
+    # Protected routes
+    scope "/" do
+      pipe_through :authenticate_user
+      get "/dashboard", PageController, :dashboard
+    end
   end
 
   # Other scopes may use custom stacks.
