@@ -1,0 +1,23 @@
+<div class="mx-auto max-w-sm">
+  <.header class="text-center">
+    Sign in
+    <:subtitle>Sign in to your account</:subtitle>
+  </.header>
+
+  <.simple_form :let={f} for={%{}} action={~p"/login"} as={:user}>
+    <.error :if={get_flash(@conn, :error)}><%= get_flash(@conn, :error) %></.error>
+
+    <.input field={f[:email]} type="email" label="Email" required />
+    <.input field={f[:password]} type="password" label="Password" required />
+
+    <:actions>
+      <.button phx-disable-with="Signing in..." class="w-full">
+        Sign in
+      </.button>
+    </:actions>
+  </.simple_form>
+
+  <p class="text-center mt-4">
+    Don't have an account? <.link href={~p"/register"} class="font-semibold">Register</.link>
+  </p>
+</div>
